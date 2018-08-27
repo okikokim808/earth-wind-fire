@@ -10,7 +10,7 @@ initMap();
 function addMarker(latlng) {
     var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
     var icon = {
-      url: "../public/images/earthquake.png", // url
+      url: "./images/earthquake.png", // url
       scaledSize: new google.maps.Size(50, 50), // scaled size
     };
     new google.maps.Marker({

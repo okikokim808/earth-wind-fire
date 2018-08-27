@@ -2,18 +2,16 @@
 const db = require('./models')
 
 
-const userData = [
-
-    {
-    name: 'Church',
-    location: 'San Francisco',
+const userData = [{
+    userName: 'Church',
+    password: 'San Francisco'
 
 }
-
 ]
 
 
 
+console.log('SD:LFIJSFIOJEWPOIFHJPOIWEHJFPOWIEHJFO{QIWJDJDFHHHE##!#!@#!@@!#')
 
 
 
@@ -22,7 +20,17 @@ db.User.create(userData, (err, user) => {
         return console.log(err)
     }
 
-    console.log(user);
+    console.log(userData);
+})
+
+
+
+db.User.find({ }, (err, userList) => {
+    if (err) {
+        return console.log(err)
+    }
+
+    console.log("******USER LIST*******", userList)
 })
 
 

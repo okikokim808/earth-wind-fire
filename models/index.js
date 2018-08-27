@@ -1,3 +1,7 @@
 const mongoose = require('mongoose');
 
-module.exports.User = require('./user.js')
+let User = require("./user.js");
+
+module.exports = {
+    User: User,
+}

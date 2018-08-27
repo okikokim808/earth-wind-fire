@@ -1,69 +1,44 @@
 
-<<<<<<< HEAD
-=======
-const express = require('express');
+// ************ SERVER JS ***********
+
+// Set up express
+
+const express = require("express");
 const app = express();
 
+// Set up body parser
 
+const bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-const bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({extended: true}));
-
-
+// CORS
 
 app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
-
-
-
-const db = require('./models');
-
-
-app.use(express.static('public'));
-
-
-
-
-app.get('/', function homepage(req, res) {
-    res.sendFile(__dirname + '/views/index.html');
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
 });
 
+// Allow express to use public files
 
+app.use(express.static("public"));
 
+let db = require("./models");
+let controllers = require("./controllers");
 
->>>>>>> upstream/master
-app.get('/api/hubs', (req, res) => {
-    db.User.find({ }, (err, user) => {
-        if(err) {
-            return console.log(err)
-        }
+// ******** ROUTES ***********
 
-        res.json(user)
-    
-})
+// API Endpoints
 
-<<<<<<< HEAD
-=======
-});
+app.get("/api/users/", controllers.user.get);
 
+// ********** SERVER *********
 
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> upstream/master
-app.listen(process.env.PORT || 3000, function () {
-  console.log('Example app listening at http://localhost:3000/');
+let port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server is running on port: ${port}`);
 });

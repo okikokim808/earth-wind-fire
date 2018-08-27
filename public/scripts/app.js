@@ -22,3 +22,15 @@ function addMarker(latlng) {
 }
 var latlng = {lat: 37.755634, lng: -122.403748}
 addMarker(latlng);
+
+$.ajax({
+    method: 'GET',
+    url: '/api/hubs',
+    success: function getArtists(e) {
+        e.data.forEach(element => {
+            allArtists.push(element);
+        });
+        
+        }
+        
+    });

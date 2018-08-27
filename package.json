@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Cyrusluke925/earth-wind-fire#readme",
   "dependencies": {
     "express": "^4.16.3",
+    "mongod": "^2.0.0",
     "mongoose": "^5.2.10"
   }
 }

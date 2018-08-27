@@ -20,7 +20,7 @@ db.User.create(userData, (err, user) => {
         return console.log(err)
     }
 
-    console.log(userData);
+    console.log(userData[0]);
 })
 
 

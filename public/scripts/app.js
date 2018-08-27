@@ -10,7 +10,7 @@ initMap();
 function addMarker(latlng) {
     var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
     var icon = {
-      url: "/images/earthquake.png", // url
+      url: "../public/images/earthquake.png", // url
       scaledSize: new google.maps.Size(50, 50), // scaled size
     };
     new google.maps.Marker({
@@ -23,14 +23,14 @@ function addMarker(latlng) {
 var latlng = {lat: 37.755634, lng: -122.403748}
 addMarker(latlng);
 
-$.ajax({
-    method: 'GET',
-    url: '/api/hubs',
-    success: function getArtists(e) {
-        e.data.forEach(element => {
-            allArtists.push(element);
-        });
+// $.ajax({
+//     method: 'GET',
+//     url: '/api/hubs',
+//     success: function getArtists(e) {
+//         e.data.forEach(element => {
+//             allArtists.push(element);
+//         });
         
-        }
+//         }
         
-    });
+//     });
